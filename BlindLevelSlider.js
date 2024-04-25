@@ -18,9 +18,27 @@ const BlindLevelLength = () => {
       {showSlider && (
         <View style={styles.sliderContainer}>
           <View style={styles.ticksContainer}>
-            <Text style={styles.tick}>3m</Text>
-            <Text style={styles.tick}>5m</Text>
-            <Text style={styles.tick}>7m</Text>
+            <Text
+              style={[
+                styles.tick,
+                sliderValue === 3 ? styles.tickSelected : null,
+              ]}>
+              3m
+            </Text>
+            <Text
+              style={[
+                styles.tick,
+                sliderValue === 5 ? styles.tickSelected : null,
+              ]}>
+              5m
+            </Text>
+            <Text
+              style={[
+                styles.tick,
+                sliderValue === 7 ? styles.tickSelected : null,
+              ]}>
+              7m
+            </Text>
           </View>
           <Slider
             style={styles.slider}
@@ -33,7 +51,7 @@ const BlindLevelLength = () => {
             value={sliderValue}
             onValueChange={setSliderValue}
           />
-          <Text style={styles.blindsStructureLink}>Blinds Structure ></Text>
+          <Text style={styles.blindsStructureLink}>Blinds Structure</Text>
         </View>
       )}
     </View>
@@ -67,6 +85,9 @@ const styles = StyleSheet.create({
   },
   tick: {
     fontSize: 12,
+  },
+  tickSelected: {
+    color: '#0ec7e3', // Change this to the desired color for selected ticks
   },
   blindsStructureLink: {
     marginTop: 10,
